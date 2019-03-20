@@ -1,15 +1,17 @@
 from flask import Flask
+from flask import render_template
+
 
 app = Flask(__name__)
 app.debug = True
 
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+@app.route('/<name>')
+def index(name=None):
+    return render_template('index.html', name=name)
 
 
-@app.route('/contact')
+@app.route('/contact/')
 def contact():
     mail = "jean@bon.fr"
     tel = "01 23 45 67 89"
