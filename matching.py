@@ -33,6 +33,7 @@ def algo(
     allergyimportant2 = "oui"
 
     linktrait = []
+    linkallergy = []
 
     # Start with sextype
     if wantedsex == sex2 and wantedsex2 == sex or \
@@ -51,9 +52,16 @@ def algo(
                         linktrait.append(onetrait)
                         print(linktrait)
                 if linktrait or traitimportant == "non" and traitimportant2 == "non":
-                    # Allergy
-                    print("allergy")
 
+                    # Allergy
+                    for oneallergy in allergy:
+                        if oneallergy in allergy2:
+                            linkallergy.append(oneallergy)
+                    if linkallergy:
+                        print(linkallergy)
+                        return "##### TABLEAU[id, Nom, Prénom, age, description, region, linktrait, linkallergy] #####"
+                    else:
+                        print("Pas d'allergie, pas de match")
                 else:
                     print("rien trouvé & trait important")
             else:
@@ -64,7 +72,3 @@ def algo(
         print("t'as merdé (sexe)")
 
     return (sex, wantedsex, region, age, wantedage, trait, traitimportant, allergy, allergyimportant)
-
-
-def filter():
-    return
