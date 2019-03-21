@@ -4,18 +4,19 @@ from matching import algo
 app = Flask(__name__)
 app.debug = True
 
-sexetype = "femme"
-city = "Paris"
-distance = 100
-age = 22
+sex = "homme"
+wantedsex = "femme"
+region = "bretagne"
+age = 30
 wantedage = [18, 30]
-trait = ["gentil", "social", "travailleur", "serviable"]
-traitimportant = "oui"
+trait = ["gentil", "social", "travailleur"]
+traitimportant = "non"
 allergy = ["eau", "soleil", "oxygene"]
 allergyimportant = "oui"
 
 
 femme = [
+    "femme"
     "homme",
     "Paris",
     100,
@@ -60,7 +61,7 @@ def inscription():
 
 @app.route('/algo')
 def match():
-    return render_template("algo.html", algo=algo(sexetype, city, distance, age, wantedage, trait, traitimportant, allergy, allergyimportant))
+    return render_template("algo.html", algo=algo(sex, wantedsex, region, age, wantedage, trait, traitimportant, allergy, allergyimportant))
 
 
 if __name__ == '__main__':
