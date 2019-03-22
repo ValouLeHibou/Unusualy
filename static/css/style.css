@@ -66,6 +66,13 @@ a { text-decoration: none; color: black}
     background-attachment: fixed;
 }
 
+.bg-login {
+    background-image: url("../images/fond-login-page.png");
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
 .boutons .bg-green {
     background-color: #3FE083;
     width: 245px;
