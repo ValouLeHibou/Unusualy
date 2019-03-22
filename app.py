@@ -8,9 +8,11 @@ from matching import algo
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///workshopdb.sqlite3'
 
+
 with app.app_context():
     db.init_app(app)
     db.create_all()
+
 sex = "homme"
 wantedsex = "femme"
 region = "bretagne"
@@ -34,6 +36,7 @@ femme = [
     ["eau", "soleil", "oxygene"],
     "oui"
 ]
+
 
 
 @app.route('/')
@@ -63,7 +66,7 @@ def inscription():
 @app.route('/matching', methods = ['POST', 'GET'])
 def matching():
     if request.method == 'POST':
-       user = User(
+        user = User(
             request.form.get("genre"),
             request.form.get("firstname"),
             request.form.get("lastname"),
@@ -82,12 +85,12 @@ def matching():
             request.form.get("caract2"),
             request.form.get("caract3"),
             request.form.get("password")
-       )
-       print(user)
-       db.session.add(user)
-       db.session.commit()
-       matching = User.query.all()
-       return render_template("matching.html", matching=matching)
+        )
+        print(user)
+        db.session.add(user)
+        db.session.commit()
+        matching = User.query.all()
+        return render_template("matching.html", matching=matching)
     else:
         result = User.query.all()
         return render_template("matching.html", matching=result)
@@ -101,4 +104,3 @@ def match():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
