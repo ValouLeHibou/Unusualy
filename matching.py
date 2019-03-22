@@ -1,7 +1,3 @@
-from flask import Flask, render_template, redirect, url_for, request, session
-
-
-
 def algo(
         # sex (string) -> homme, femme
         sex = "",
@@ -60,6 +56,7 @@ def algo(
                     if linkallergy:
                         print(linkallergy)
                         return "##### TABLEAU[id, Nom, Prénom, age, description, region, linktrait, linkallergy] #####"
+                        # display matching par qualité du matching
                     else:
                         print("Pas d'allergie, pas de match")
                 else:
@@ -71,4 +68,5 @@ def algo(
     else:
         print("t'as merdé (sexe)")
 
-    return (sex, wantedsex, region, age, wantedage, trait, traitimportant, allergy, allergyimportant)
+    return "ok"
+   # return (sex, wantedsex, region, age, wantedage, trait, traitimportant, allergy, allergyimportant)
