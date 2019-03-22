@@ -1,37 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends "base.html" %}
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-<body>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Logo</a>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Accueil <span class="sr-only">(current)</span></a>
-        {% if session['logged_in'] %}
-            <li class="nav-item">
-                <a class="nav-item nav-link" href="#">Matching</a>
-            </li>
-            <li class="nav-item">
-                <a  class="nav-item nav-link" href="{{ url_for('logout') }}">Se déconnecter</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-item nav-link"  href="{{ url_for('login') }}">Se connecter</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-item nav-link"  href="{{ url_for('inscription') }}">S'inscrire</a>
-            </li>
-        {% endif %}
-
-    </div>
-  </div>
-</nav>
+{% block content %}
 
 <div class="container">
 
@@ -39,10 +8,10 @@
             <div class="card">
                 <div class="card-header bg-warning">
                     <div class="card-title">FORMULAIRE D'INSCRIPTION</div>
-                    <div style="float:right; font-size: 85%; position: relative; top:-10px; ">Vous avez un compte!  <a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Se connecter</a></div>
+                    <div style="float:right; font-size: 85%; position: relative; top:-10px; ">Vous avez un compte!  <a id="signinlink" href="{{ url_for('login') }}">Se connecter</a></div>
                 </div>
                 <div class="card-body" >
-                    <form id="signupform" class="form-horizontal" role="form">
+                    <form id="signupform" class="form-horizontal" role="form" action="/matching" method = "POST">
 
                         <div id="alert_enregist" style="display:none" class="alert alert-danger">
                             <p>Erreur:</p>
@@ -51,138 +20,184 @@
 
                         <!-- RENSEIGNEMENT -->
                         <div class="form-group">
-                            <label for="prenom" class="col-md-3 control-label">Prenom</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="prenom" name="prenom" placeholder="prenom" required>
+                            <label for="prenom" class="col-md-12 control-label">Genre</label>
+                            <div class="col-md-12">
+                                <input type="radio" id="femme" name="genre" value="Femme">
+                                <label for="femme">Femme</label>
+                                <input type="radio" id="homme" name="genre" value="Homme">
+                                <label for="homme">Homme</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstname" class="col-md-12 control-label">Prénom</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="prenom" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="nom" class="col-md-3 control-label">Nom</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="nom" name="prenom" placeholder="Nom" required>
+                            <label for="lastname" class="col-md-12 control-label">Nom</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom" required>
+                            </div>
+                        </div>
+
+                         <div class="form-group">
+                            <label for="nom" class="col-md-12 control-label">Age</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" id="age" name="age" placeholder="Age" required>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="adresse" class="col-md-3 control-label">Adresse</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="adresse" name="adresse" placeholder="Adresse" required>
+                            <label for="email" class="col-md-12 control-label">Email</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="loc" class="col-md-12 control-label">Ville</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" id="loc" name="loc" placeholder="Ville" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="caract" class="col-md-12 control-label">Caractère</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="caract" name="caract">
+                                    <option value="Genereux">Genereux</option>
+                                     <option value="Gentil">Gentil</option>
+                                     <option value="Ambitieux">Ambitieux</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="adresse" class="col-md-12 control-label">Hobby</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="hobby" name="hobby">
+                                    <option value="Golf">Golf</option>
+                                     <option value="Chant">Chant</option>
+                                     <option value="Danse">Danse</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="descr" class="col-md-12 control-label">Description</label>
+                            <div class="col-md-12">
+                                <textarea id="descr" name="descr"></textarea>
                             </div>
                         </div>
 
+                        <hr>
+
+                        <h3>Veuillez selectionner vos allergies les plus importantes</h3>
                         <div class="form-group">
-                            <label for="ville" class="col-md-3 control-label">Ville</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="ville" name="ville" placeholder="Ville" required>
+                            <label for="al1" class="col-md-12 control-label">Allergie n°1</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="al1" name="al1">
+                                    <option value="0">Choisir...</option>
+                                    <option value="1">Eau</option>
+                                     <option value="2">Soleil</option>
+                                     <option value="3">Chocolat</option>
+                                </select>
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label for="code_postal" class="col-md-3 control-label">Code Postal</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" maxlength="7" id="code_postal" name="cp" placeholder="Code postal" required>
+                            <label for="al2" class="col-md-12 control-label">Allergie n°2</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="al2" name="al2">
+                                    <option value="0">Choisir...</option>
+                                    <option value="1">Eau</option>
+                                     <option value="2">Soleil</option>
+                                     <option value="3">Chocolat</option>
+                                </select>
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label for="province" class="col-md-3 control-label">Province</label>
-                            <div class="col-md-9">
-                                <select class=" form-control selectpicker" data-live-search="true" id="province" required>
-                                    <option>Alberta</option>
-                                    <option>Colombie-Britannique</option>
-                                    <option>Île-du-Prince-Édouard</option>
-                                    <option>Manitoba </option>
-                                    <option>Nouveau-Brunswick </option>
-                                    <option>Nouvelle-Écosse </option>
-                                    <option>Ontario </option>
-                                    <option selected>Québec </option>
-                                    <option>Saskatchewan </option>
-                                    <option>Terre-Neuve et Labrador </option>
+                            <label for="al3" class="col-md-12 control-label">Allergie n°3</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="al3" name="al3">
+                                    <option value="0">Choisir...</option>
+                                    <option value="1">Eau</option>
+                                     <option value="2">Soleil</option>
+                                     <option value="3">Chocolat</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="al4" class="col-md-12 control-label">Allergie n°4</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="al4" name="al4">
+                                    <option value="0">Choisir...</option>
+                                    <option value="1">Eau</option>
+                                     <option value="2">Soleil</option>
+                                     <option value="3">Chocolat</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="al5" class="col-md-12 control-label">Allergie n°5</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="al5" name="al5">
+                                    <option value="0">Choisir...</option>
+                                    <option value="1">Eau</option>
+                                     <option value="2">Soleil</option>
+                                     <option value="3">Chocolat</option>
                                 </select>
                             </div>
                         </div>
 
+                        <hr>
+
+                        <h3>Veuillez selectionner les traits de caractères qui vous définissent le mieux</h3>
                         <div class="form-group">
-                            <label for="pays" class="col-md-3 control-label">Pays</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="pays" name="pays" placeholder="Pays">
+                            <label for="caract1" class="col-md-12 control-label">Caractère n°1</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="caract1" name="caract1">
+                                    <option value="0">Choisir...</option>
+                                    <option value="1">Ambitieux</option>
+                                    <option value="2">Généreux</option>
+                                    <option value="3">Gentil</option>
+                                </select>
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label for="phone" class="col-md-3 control-label">Téléphone</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Téléphone" required>
+                            <label for="caract2" class="col-md-12 control-label">Caractère n°2</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="caract2" name="caract2">
+                                    <option value="0">Choisir...</option>
+                                    <option value="1">Ambitieux</option>
+                                    <option value="2">Généreux</option>
+                                    <option value="3">Gentil</option>
+                                </select>
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <label for="phone_2" class="col-md-3 control-label">Téléphone</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="phone_2" name="phone2" placeholder="Téléphone 2">
-                            </div>
-                        </div>
-
-                        <div class="panel-heading">
-                            <div class="panel-title" style="font-weight:600; margin-top:50px">IDENTIFICATION</div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="email" class="col-md-3 control-label">Email</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Adresse email" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="register_password" class="col-md-3 control-label">Mot de passe</label>
-                            <div class="col-md-9">
-                                <input type="password" id="register_password" data-minlength="8" class="form-control" name="password" placeholder="mot de passe" required>
-                                <div class="help-block">Minimum de 8 caractere</div>
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="confir_password" class="col-md-3 control-label">Confirmer le mot de passe</label>
-                            <div class="col-md-9">
-                                <input type="password" id="confir_password" data-minlength="8" class="form-control" name="psw" placeholder="Entrer le même mot de passe" required>
-                            </div>
-                            <div class="help-block avec_erreur"></div>
-                        </div>
-
-
-
-                        <div class="form-group">
-                            <label for="quest_secret" class="col-md-3 control-label">Question secrète</label>
-                            <div class="col-md-9">
-                                <select class="form-control" id="quest_secret" required>
-                                    <option selected>Choisissez une question</option>
-                                    <option value="1">La destination de votre premier voyage</option>
-                                    <option value="2">Quel était l'héros de votre enfance</option>
-                                    <option value="3">Le prénom de votre meilleur ami</option>
-                                    <option value="4">Le prénom de votre premier amour</option>
-                                    <option value="5">Le deuxième prenom de votre plus jeune enfant</option>
+                            <label for="caract3" class="col-md-12 control-label">Caractère n°3</label>
+                            <div class="col-md-12">
+                                <select class="form-control" id="caract3" name="caract3">
+                                    <option value="0">Choisir...</option>
+                                    <option value="1">Ambitieux</option>
+                                    <option value="2">Généreux</option>
+                                    <option value="3">Gentil</option>
                                 </select>
                             </div>
                         </div>
 
+                        <hr>
+
+                        <h3>Enfin, veuillez entrer votre mot de passe</h3>
                         <div class="form-group">
-                            <label for="reponse" class="col-md-3 control-label">Réponse</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="reponse" name="reponse" placeholder="Réponse" required>
+                            <label for="password" class="col-md-12 control-label">Password</label>
+                            <div class="col-md-12">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="password" required>
                             </div>
                         </div>
-
-
-
 
                         <div class="form-group" >
                             <!-- Boutton -->
-                            <div class="col-md-offset-3 col-md-9" style=" margin-top:20px;">
-                                <button id="btn-signup" type="button" class="btn btn-info col-md-12 bg-warning border-0"><i class="icon-hand-right"></i> &nbsp S'enregister</button>
+                            <div class="col-md-12" style=" margin-top:20px;">
+                                <input id="btn-signup" type="submit" class="btn btn-info col-md-12 bg-warning border-0" value="S'enregistrer">
 
                             </div>
                         </div>
@@ -192,10 +207,4 @@
          </div>
     </div>
 
-
-<!-- Script JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>
+{% endblock %}

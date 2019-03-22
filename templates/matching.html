@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    TOTO
+
+<table border = 1>
+ {% for user in matching %}
+    <tr>
+       <th> {{ user.genre }} </th>
+       <th> {{ user.firstname }} </th>
+       <td> {{ user.lastname }} </td>
+       <td> {{ user.age }} </td>
+       <td> {{ user.email }} </td>
+       <td> {{ user.firstname }} </td>
+    </tr>
+ {% endfor %}
+</table>
+
+{% endblock %}
