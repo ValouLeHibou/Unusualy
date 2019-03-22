@@ -71,11 +71,11 @@ def matching():
 
 ######## PROFIL ADMIN #########
 sex = "homme"
-wantedsex = "femme"
+wantedsex = "osef"
 region = "bretagne"
-age = 30
+age = 29
 wantedage = [18, 30]
-trait = ["gentil", "social", "travailleur"]
+trait = ["gentil", "mignion", "travailleur"]
 traitimportant = "non"
 allergy = ["eau", "soleil", "oxygene"]
 allergyimportant = "oui"
