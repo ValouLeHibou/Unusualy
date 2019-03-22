@@ -40,3 +40,4 @@ class User(db.Model):
         self.caract1 = caract1
         self.caract2 = caract2
         self.caract3 = caract3
+
