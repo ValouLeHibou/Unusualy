@@ -2,13 +2,13 @@
 
 {% block content %}
 
-<div class="container">
+<div class="bg-inscription">
 
-        <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+        <div class="col-6 p-0 offset-3 pt-5 pb-5">
             <div class="card">
-                <div class="card-header bg-warning">
-                    <div class="card-title">FORMULAIRE D'INSCRIPTION</div>
-                    <div style="float:right; font-size: 85%; position: relative; top:-10px; ">Vous avez un compte!  <a id="signinlink" href="{{ url_for('login') }}">Se connecter</a></div>
+                <div class="card-header d-flex justify-content-center align-items-center">
+                    <div class="card-title col-6 mb-0">FORMULAIRE D'INSCRIPTION</div>
+                    <div class="col-6">Vous avez un compte!  <a id="signinlink" href="{{ url_for('login') }}">Se connecter</a></div>
                 </div>
                 <div class="card-body" >
                     <form id="signupform" class="form-horizontal" role="form" action="/matching" method = "POST">
@@ -28,32 +28,34 @@
                                 <label for="homme">Homme</label>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="firstname" class="col-md-12 control-label">Prénom</label>
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="prenom" required>
+                        <div class="form-group d-flex row">
+                            <div class="col-6">
+                                <label for="firstname" class="col-md-12 control-label">Prénom</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="prenom" required>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="lastname" class="col-md-12 control-label">Nom</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom" required>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="lastname" class="col-md-12 control-label">Nom</label>
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom" required>
-                            </div>
-                        </div>
-
-                         <div class="form-group">
-                            <label for="nom" class="col-md-12 control-label">Age</label>
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" id="age" name="age" placeholder="Age" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email" class="col-md-12 control-label">Email</label>
-                            <div class="col-md-12">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
-                            </div>
+                         <div class="form-group d-flex row">
+                             <div class="col-6">
+                                <label for="nom" class="col-md-12 control-label">Age</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="age" name="age" placeholder="Age" required>
+                                </div>
+                             </div>
+                             <div class="col-6">
+                                <label for="email" class="col-md-12 control-label">Email</label>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                                </div>
+                             </div>
                         </div>
                         <div class="form-group">
                             <label for="loc" class="col-md-12 control-label">Ville</label>
@@ -61,200 +63,128 @@
                                 <input type="text" class="form-control" id="loc" name="loc" placeholder="Ville" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="caract" class="col-md-12 control-label">Caractère</label>
-                            <div class="col-md-12">
-                                <select class="form-control" id="caract" name="caract">
-                                    <option value="0">Choisir...</option>
-                                    <option value="Attentionné">Attentionné</option>
-                                    <option value="Généreux">Généreux</option>
-                                    <option value="Drôle">Drôle</option>
-                                    <option value="Fêtard">Fêtard</option>
-                                    <option value="Gentil">Gentil</option>
-                                    <option value="Courageux">Courageux</option>
-                                    <option value="Intelligent">Intelligent</option>
-                                    <option value="Bosseur">Bosseur</option>
-                                    <option value="Honnête">Honnête</option>
-                                    <option value="Patient">Patient</option>
-                                    <option value="Fiable">Fiable</option>
-                                    <option value="Bricoleur">Bricoleur</option>
-                                    <option value="Charmeur">Charmeur</option>
-                                    <option value="Sportif">Sportif</option>
-                                    <option value="Calme">Calme</option>
-                                </select>
+                        <div class="form-group d-flex row">
+                            <div class="col-6">
+                                <label for="caract" class="col-md-12 control-label">Caractère</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" id="caract" name="caract">
+                                        <option value="Genereux">Genereux</option>
+                                         <option value="Gentil">Gentil</option>
+                                         <option value="Ambitieux">Ambitieux</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="adresse" class="col-md-12 control-label">Hobby</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" id="hobby" name="hobby">
+                                        <option value="Golf">Golf</option>
+                                         <option value="Chant">Chant</option>
+                                         <option value="Danse">Danse</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="adresse" class="col-md-12 control-label">Hobby</label>
-                            <div class="col-md-12">
-                                <select class="form-control" id="hobby" name="hobby">
-                                    <option value="Golf">Golf</option>
-                                     <option value="Chant">Chant</option>
-                                     <option value="Danse">Danse</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
+                        <div class="form-group col-12">
                             <label for="descr" class="col-md-12 control-label">Description</label>
-                            <div class="col-md-12">
-                                <textarea id="descr" name="descr"></textarea>
+                            <textarea class="form-control p-3" rows="3" id="descr" name="descr"></textarea>
+                        </div>
+                        <h5 class="px-3 mt-4">Veuillez selectionner vos allergies les plus importantes</h5>
+                        <div class="form-group d-flex row">
+                            <div class="col-6">
+                                <label for="al1" class="col-md-12 control-label">Allergie n°1</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" id="al1" name="al1">
+                                        <option value="0">Choisir...</option>
+                                        <option value="1">Eau</option>
+                                         <option value="2">Soleil</option>
+                                         <option value="3">Chocolat</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="al2" class="col-md-12 control-label">Allergie n°2</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" id="al2" name="al2">
+                                        <option value="0">Choisir...</option>
+                                        <option value="1">Eau</option>
+                                         <option value="2">Soleil</option>
+                                         <option value="3">Chocolat</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-
-                        <hr>
-
-                        <h3>Veuillez selectionner vos allergies les plus importantes</h3>
-                        <div class="form-group">
-                            <label for="al1" class="col-md-12 control-label">Allergie n°1</label>
-                            <div class="col-md-12">
-                                <select class="form-control" id="al1" name="al1">
-                                    <option value="0">Choisir...</option>
-                                    <option value="Allergique à l'eau">Allergique à l'eau</option>
-                                    <option value="Allergique aux pièces de monnaies">Allergique aux pièces de monnaies</option>
-                                    <option value="Allergique aux vibrations">Allergique aux vibrations</option>
-                                    <option value="Allergique au froid">Allergique au froid</option>
-                                    <option value="Allergique à la transpiration">Allergique à la transpiration</option>
-                                    <option value="Allergique au sperme">Allergique au sperme</option>
-                                    <option value="Allergique aux chaussures">Allergique aux chaussures</option>
-                                    <option value="Allergique au lupin">Allergique au lupin</option>
-                                </select>
+                        <div class="form-group d-flex row">
+                            <div class="col-6">
+                                <label for="al3" class="col-md-12 control-label">Allergie n°3</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" id="al3" name="al3">
+                                        <option value="0">Choisir...</option>
+                                        <option value="1">Eau</option>
+                                         <option value="2">Soleil</option>
+                                         <option value="3">Chocolat</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label for="al4" class="col-md-12 control-label">Allergie n°4</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" id="al4" name="al4">
+                                        <option value="0">Choisir...</option>
+                                        <option value="1">Eau</option>
+                                         <option value="2">Soleil</option>
+                                         <option value="3">Chocolat</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="al2" class="col-md-12 control-label">Allergie n°2</label>
-                            <div class="col-md-12">
-                                <select class="form-control" id="al2" name="al2">
-                                    <option value="0">Choisir...</option>
-                                    <option value="Allergique à l'eau">Allergique à l'eau</option>
-                                    <option value="Allergique aux pièces de monnaies">Allergique aux pièces de monnaies</option>
-                                    <option value="Allergique aux vibrations">Allergique aux vibrations</option>
-                                    <option value="Allergique au froid">Allergique au froid</option>
-                                    <option value="Allergique à la transpiration">Allergique à la transpiration</option>
-                                    <option value="Allergique au sperme">Allergique au sperme</option>
-                                    <option value="Allergique aux chaussures">Allergique aux chaussures</option>
-                                    <option value="Allergique au lupin">Allergique au lupin</option>
-                                </select>
+                        <div class="form-group d-flex row">
+                            <div class="col-6">
+                                <label for="al5" class="col-md-12 control-label">Allergie n°5</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" id="al5" name="al5">
+                                        <option value="0">Choisir...</option>
+                                        <option value="1">Eau</option>
+                                         <option value="2">Soleil</option>
+                                         <option value="3">Chocolat</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="al3" class="col-md-12 control-label">Allergie n°3</label>
-                            <div class="col-md-12">
-                                <select class="form-control" id="al3" name="al3">
-                                    <option value="0">Choisir...</option>
-                                    <option value="Allergique à l'eau">Allergique à l'eau</option>
-                                    <option value="Allergique aux pièces de monnaies">Allergique aux pièces de monnaies</option>
-                                    <option value="Allergique aux vibrations">Allergique aux vibrations</option>
-                                    <option value="Allergique au froid">Allergique au froid</option>
-                                    <option value="Allergique à la transpiration">Allergique à la transpiration</option>
-                                    <option value="Allergique au sperme">Allergique au sperme</option>
-                                    <option value="Allergique aux chaussures">Allergique aux chaussures</option>
-                                    <option value="Allergique au lupin">Allergique au lupin</option>
-                                </select>
+                        <h5 class="px-3 mt-4">Veuillez selectionner les traits de caractères qui vous définissent le mieux</h5>
+                        <div class="form-group d-flex row">
+                            <div class="col-4">
+                                <label for="caract1" class="col-md-12 control-label">Caractère n°1</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" id="caract1" name="caract1">
+                                        <option value="0">Choisir...</option>
+                                        <option value="1">Ambitieux</option>
+                                        <option value="2">Généreux</option>
+                                        <option value="3">Gentil</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="al4" class="col-md-12 control-label">Allergie n°4</label>
-                            <div class="col-md-12">
-                                <select class="form-control" id="al4" name="al4">
-                                    <option value="0">Choisir...</option>
-                                    <option value="Allergique à l'eau">Allergique à l'eau</option>
-                                    <option value="Allergique aux pièces de monnaies">Allergique aux pièces de monnaies</option>
-                                    <option value="Allergique aux vibrations">Allergique aux vibrations</option>
-                                    <option value="Allergique au froid">Allergique au froid</option>
-                                    <option value="Allergique à la transpiration">Allergique à la transpiration</option>
-                                    <option value="Allergique au sperme">Allergique au sperme</option>
-                                    <option value="Allergique aux chaussures">Allergique aux chaussures</option>
-                                    <option value="Allergique au lupin">Allergique au lupin</option>
-                                </select>
+                            <div class="col-4">
+                                <label for="caract2" class="col-md-12 control-label">Caractère n°2</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" id="caract2" name="caract2">
+                                        <option value="0">Choisir...</option>
+                                        <option value="1">Ambitieux</option>
+                                        <option value="2">Généreux</option>
+                                        <option value="3">Gentil</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="al5" class="col-md-12 control-label">Allergie n°5</label>
-                            <div class="col-md-12">
-                                <select class="form-control" id="al5" name="al5">
-                                    <option value="0">Choisir...</option>
-                                    <option value="Allergique à l'eau">Allergique à l'eau</option>
-                                    <option value="Allergique aux pièces de monnaies">Allergique aux pièces de monnaies</option>
-                                    <option value="Allergique aux vibrations">Allergique aux vibrations</option>
-                                    <option value="Allergique au froid">Allergique au froid</option>
-                                    <option value="Allergique à la transpiration">Allergique à la transpiration</option>
-                                    <option value="Allergique au sperme">Allergique au sperme</option>
-                                    <option value="Allergique aux chaussures">Allergique aux chaussures</option>
-                                    <option value="Allergique au lupin">Allergique au lupin</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <hr>
-
-                        <h3>Veuillez selectionner les traits de caractères qui vous définissent le mieux</h3>
-                        <div class="form-group">
-                            <label for="caract1" class="col-md-12 control-label">Caractère n°1</label>
-                            <div class="col-md-12">
-                                <select class="form-control" id="caract1" name="caract1">
-                                    <option value="0">Choisir...</option>
-                                    <option value="Attentionné">Attentionné</option>
-                                    <option value="Généreux">Généreux</option>
-                                    <option value="Drôle">Drôle</option>
-                                    <option value="Fêtard">Fêtard</option>
-                                    <option value="Gentil">Gentil</option>
-                                    <option value="Courageux">Courageux</option>
-                                    <option value="Intelligent">Intelligent</option>
-                                    <option value="Bosseur">Bosseur</option>
-                                    <option value="Honnête">Honnête</option>
-                                    <option value="Patient">Patient</option>
-                                    <option value="Fiable">Fiable</option>
-                                    <option value="Bricoleur">Bricoleur</option>
-                                    <option value="Charmeur">Charmeur</option>
-                                    <option value="Sportif">Sportif</option>
-                                    <option value="Calme">Calme</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="caract2" class="col-md-12 control-label">Caractère n°2</label>
-                            <div class="col-md-12">
-                                <select class="form-control" id="caract2" name="caract2">
-                                    <option value="0">Choisir...</option>
-                                    <option value="Attentionné">Attentionné</option>
-                                    <option value="Généreux">Généreux</option>
-                                    <option value="Drôle">Drôle</option>
-                                    <option value="Fêtard">Fêtard</option>
-                                    <option value="Gentil">Gentil</option>
-                                    <option value="Courageux">Courageux</option>
-                                    <option value="Intelligent">Intelligent</option>
-                                    <option value="Bosseur">Bosseur</option>
-                                    <option value="Honnête">Honnête</option>
-                                    <option value="Patient">Patient</option>
-                                    <option value="Fiable">Fiable</option>
-                                    <option value="Bricoleur">Bricoleur</option>
-                                    <option value="Charmeur">Charmeur</option>
-                                    <option value="Sportif">Sportif</option>
-                                    <option value="Calme">Calme</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="caract3" class="col-md-12 control-label">Caractère n°3</label>
-                            <div class="col-md-12">
-                                <select class="form-control" id="caract3" name="caract3">
-                                    <option value="0">Choisir...</option>
-                                    <option value="Attentionné">Attentionné</option>
-                                    <option value="Généreux">Généreux</option>
-                                    <option value="Drôle">Drôle</option>
-                                    <option value="Fêtard">Fêtard</option>
-                                    <option value="Gentil">Gentil</option>
-                                    <option value="Courageux">Courageux</option>
-                                    <option value="Intelligent">Intelligent</option>
-                                    <option value="Bosseur">Bosseur</option>
-                                    <option value="Honnête">Honnête</option>
-                                    <option value="Patient">Patient</option>
-                                    <option value="Fiable">Fiable</option>
-                                    <option value="Bricoleur">Bricoleur</option>
-                                    <option value="Charmeur">Charmeur</option>
-                                    <option value="Sportif">Sportif</option>
-                                    <option value="Calme">Calme</option>
-                                </select>
+                            <div class="col-4">
+                                <label for="caract3" class="col-md-12 control-label">Caractère n°3</label>
+                                <div class="col-md-12">
+                                    <select class="form-control" id="caract3" name="caract3">
+                                        <option value="0">Choisir...</option>
+                                        <option value="1">Ambitieux</option>
+                                        <option value="2">Généreux</option>
+                                        <option value="3">Gentil</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
@@ -270,8 +200,8 @@
 
                         <div class="form-group" >
                             <!-- Boutton -->
-                            <div class="col-md-12" style=" margin-top:20px;">
-                                <input id="btn-signup" type="submit" class="btn btn-info col-md-12 bg-warning border-0" value="S'enregistrer">
+                            <div class="col-md-12 boutons d-flex justify-content-center " style=" margin-top:20px;">
+                                <input id="btn-signup" type="submit" class="btn btn bg-green" value="S'enregistrer">
 
                             </div>
                         </div>
@@ -282,3 +212,10 @@
     </div>
 
 {% endblock %}
+
+<!-- Script JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

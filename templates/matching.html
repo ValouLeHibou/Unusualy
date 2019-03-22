@@ -2,18 +2,76 @@
 
 {% block content %}
 
-    TOTO
+<div class="bg-match  d-flex flex-column justify-content-center align-items-center">
+    <div class=" w-100 d-flex justify-content-center align-items-center pt-5 mt-5"><h1 class="bg-light w-25 p-3">Voici votre match parfait !</h1></div>
+
+    <div class="w-50 row d-flex mt-5">
+        {% for user in matching %}
+        <div class="profil col-12 d-flex mb-4 py-4 justify-content-center">
+            <div class="col-3 d-flex">
+                <img src="../static/images/photo_test.png" height="80%">
+            </div>
+            <div class="col-8 offset-1 d-flex flex-column justify-content-center">
+                <h6>{{ user.firstname }} {{ user.lastname }} - {{ user.age }} ans <span>A {{ user.loc }}</span></h6>
+                <p>{{ user.dscr }}</p>
+                <p>{{ user.hobby }}</p>
+                <div class="d-flex row mb-3 pl-3">
+                    <div class="btn bg-green col-2 mr-2">Eau</div>
+                    {% if user.al1 != '0' %}
+                        <div class="btn bg-green p-2 mr-2">{{ user.al1 }}</div>
+                    {% endif %}
+                    {% if user.al2 != '0' %}
+                        <div class="btn bg-green p-2 mr-2">{{ user.al2 }}</div>
+                    {% endif %}
+                    {% if user.al3 != '0' %}
+                        <div class="btn bg-green p-2 mr-2">{{ user.al3 }}</div>
+                    {% endif %}
+                    {% if user.al4 != '0' %}
+                        <div class="btn bg-green p-2 mr-2">{{ user.al4 }}</div>
+                    {% endif %}
+                    {% if user.al5 != '0' %}
+                        <div class="btn bg-green p-2 mr-2">{{ user.al5 }}</div>
+                    {% endif %}
+                </div>
+                <div class="d-flex row pl-3">
+                    <div class="btn bg-green p-2 mr-2">Généreux</div>
+                    {% if user.caract1 != '0' %}
+                        <div class="btn bg-green p-2 mr-2">{{ user.caract1 }}</div>
+                    {% endif %}
+                    {% if user.caract2 != '0' %}
+                        <div class="btn bg-green p-2 mr-2">{{ user.caract2 }}</div>
+                    {% endif %}
+                    {% if user.caract3 != '0' %}
+                        <div class="btn bg-green p-2 mr-2">{{ user.caract3 }}</div>
+                    {% endif %}
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
 
 <table border = 1>
  {% for user in matching %}
-    <tr>
+    <!--<tr>
        <th> {{ user.genre }} </th>
        <th> {{ user.firstname }} </th>
        <td> {{ user.lastname }} </td>
        <td> {{ user.age }} </td>
        <td> {{ user.email }} </td>
-       <td> {{ user.firstname }} </td>
-    </tr>
+       <td> {{ user.loc }} </td>
+       <td> {{ user.caract }} </td>
+       <td> {{ user.hobby }} </td>
+       <td> {{ user.al1 }} </td>
+       <td> {{ user.al2 }} </td>
+       <td> {{ user.al3 }} </td>
+       <td> {{ user.al4 }} </td>
+       <td> {{ user.al5 }} </td>
+       <td> {{ user.caract1 }} </td>
+       <td> {{ user.caract2 }} </td>
+       <td> {{ user.caract3 }} </td>
+    </tr>-->
  {% endfor %}
 </table>
 
