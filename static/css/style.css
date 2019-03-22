@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
 
 
 body{
@@ -20,7 +20,7 @@ a { text-decoration: none; color: black}
 
 .navbar-brand , .nav-link, .my-form, .login-form
 {
-    font-family: Raleway, sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .my-form
@@ -47,4 +47,135 @@ a { text-decoration: none; color: black}
     margin-right: 0;
 }
 
-/* ####### ALGO ###### */
+.bg-home {
+    background-image: url("../images/fond.png");
+    background-size: cover;
+    height: 100vh;
+}
+
+
+.bg-match {
+    background-image: url("../images/fond-match-page.png");
+    background-size: cover;
+    height: 100vh;
+}
+
+.bg-inscription {
+    background-image: url("../images/fond-inscription-page.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.boutons .bg-green {
+    background-color: #3FE083;
+    width: 245px;
+    height: 38px !important;
+    border-radius: 50px !important;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.btn.bg-green {
+    background-color: #3FE083;
+    height: 33px;
+    border-radius: 5px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.boutons .bg-grey {
+    background-color: #868686;
+    width: 245px;
+    border-radius: 50px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.boutons {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    color: #ffffff !important;
+}
+
+.boutons .bg-grey:hover {
+    background-color: transparent;
+    border: 1px solid #868686;
+    color: #868686 !important;
+}
+
+.boutons .bg-green:hover {
+    background-color: transparent;
+    border: 1px solid #3FE083;
+    color: #3FE083 !important;
+}
+
+.info-home {
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 12%;
+    padding-top: 15%;
+}
+
+.info-home h1 {
+    font-size: 60px;
+    font-weight: 800;
+    color: #363D73;
+}
+
+hr {
+    width: 140px;
+    border-top: 5px solid #868686 !important;
+    margin-left: 0px;
+}
+
+.info-home h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #868686;
+}
+.info-home h4 span {
+    font-size: 25px;
+    font-weight: 600;
+    color: #363D73;
+}
+
+.bg-match h1 {
+    font-size: 30px;
+    color: #363D73;
+}
+
+.profil {
+    width: 120px;
+    background-color: #F9F9F9;
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+}
+
+.profil h6 span {
+    font-size: 10px;
+    color: #868686;
+}
+
+.profil h6 {
+    font-size: 20px;
+    color:#363D73 ;
+}
+
+.navbar {
+    position: absolute !important;
+    right: 0;
+}
+
+.navbar a {
+    color: #ffffff;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.card-header {
+    background-color: transparent !important;
+}
