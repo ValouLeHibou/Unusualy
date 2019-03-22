@@ -21,8 +21,9 @@ class User(db.Model):
     caract1 = db.Column(db.String(1000))
     caract2 = db.Column(db.String(1000))
     caract3 = db.Column(db.String(1000))
+    password = db.Column(db.String(1000))
 
-    def __init__(self, genre, firstname, lastname, age, email, loc, caract, hobby, dscr, al1, al2, al3, al4, al5, caract1, caract2, caract3):
+    def __init__(self, genre, firstname, lastname, age, email, loc, caract, hobby, dscr, al1, al2, al3, al4, al5, caract1, caract2, caract3, password):
         self.genre = genre
         self.firstname = firstname
         self.lastname = lastname
@@ -40,4 +41,4 @@ class User(db.Model):
         self.caract1 = caract1
         self.caract2 = caract2
         self.caract3 = caract3
-
+        self.password = password
