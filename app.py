@@ -52,7 +52,8 @@ def matching():
             request.form.get("al5"),
             request.form.get("caract1"),
             request.form.get("caract2"),
-            request.form.get("caract3")
+            request.form.get("caract3"),
+            request.form.get("password")
        )
        print(user)
        db.session.add(user)
