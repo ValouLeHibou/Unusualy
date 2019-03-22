@@ -5,6 +5,7 @@ from models import db
 from models.models import User
 from matching import algo
 
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///workshopdb.sqlite3'
 
@@ -12,31 +13,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///workshopdb.sqlite3'
 with app.app_context():
     db.init_app(app)
     db.create_all()
-
-sex = "homme"
-wantedsex = "femme"
-region = "bretagne"
-age = 30
-wantedage = [18, 30]
-trait = ["gentil", "social", "travailleur"]
-traitimportant = "non"
-allergy = ["eau", "soleil", "oxygene"]
-allergyimportant = "oui"
-
-
-femme = [
-    "femme"
-    "homme",
-    "Paris",
-    100,
-    25,
-    [18, 29],
-    ["insupportable", "social", "flemmarde", "serviable"],
-    "oui",
-    ["eau", "soleil", "oxygene"],
-    "oui"
-]
-
 
 
 @app.route('/')
@@ -96,11 +72,24 @@ def matching():
         return render_template("matching.html", matching=result)
 
 
-app.run(port=8080, debug=True)
+######## PROFIL ADMIN #########
+sex = "homme"
+wantedsex = "femme"
+region = "bretagne"
+age = 30
+wantedage = [18, 30]
+trait = ["gentil", "social", "travailleur"]
+traitimportant = "non"
+allergy = ["eau", "soleil", "oxygene"]
+allergyimportant = "oui"
+###############################
+
+
 @app.route('/algo')
 def match():
-    return render_template("algo.html", algo=algo(sex, wantedsex, region, age, wantedage, trait, traitimportant, allergy, allergyimportant))
+    return algo(sex, wantedsex, region, age, wantedage, trait, traitimportant, allergy, allergyimportant)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
